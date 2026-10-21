@@ -6,6 +6,12 @@ desktops Windows switches as usual and the app stays out of the way. System gest
 
 Runs in the tray and does not need administrator rights.
 
+## Install with Chocolatey
+```
+choco install cycleswipes
+```
+Then start "CycleSwipes" from the Start menu and turn on "Start with Windows" in the tray menu.
+
 ## Download
 Grab `CycleSwipes-<version>-win-x64.zip` from [Releases](https://github.com/Rexqwer911/cycle-swipes-win11/releases),
 unpack it to any folder you can write to (for example `%LOCALAPPDATA%\CycleSwipes`) and run `CycleSwipes.exe`.
@@ -29,6 +35,7 @@ Needs the .NET 9 SDK and GNU make (for example `choco install make`). The recipe
 | `make run` | build and start the app |
 | `make debug` | build and start the app with `--debug` |
 | `make release` | self-contained single-file exe, zipped into `dist\CycleSwipes-<version>-win-x64.zip` |
+| `make choco` | Chocolatey package for the published GitHub release of the current version, into `dist\` |
 | `make clean` | remove `bin`, `obj`, `publish` and `dist` |
 
 The version comes from `<Version>` in `CycleSwipes.csproj`. Without make, the same is
@@ -101,6 +108,10 @@ exe and restart the app. There is no fallback switching method.
 - `src/Autostart.cs`, `src/TrayVisuals.cs`, `src/Program.cs`: autostart, tray icon and menu, entry point.
 - `config.json`: thresholds; `CycleSwipes.ico`: app icon; `lib/`: VirtualDesktopAccessor.dll and its license.
 - `Makefile`: build, run and release commands.
+- `choco/`: Chocolatey package template (the install script downloads the release zip and checks its SHA-256).
+
+Release order: bump `<Version>`, `make release`, publish the zip as GitHub release `v<version>`, then `make choco`
+(it takes the checksum from the published release) and `choco push`.
 
 ## License
 MIT, see `LICENSE`. `VirtualDesktopAccessor.dll` is by Jari Pennanen, also under MIT.

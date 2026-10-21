@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Template: `make choco` fills in {{VERSION}} and packs it into dist/. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>cycleswipes</id>
+    <version>{{VERSION}}</version>
+    <packageSourceUrl>https://github.com/Rexqwer911/cycle-swipes-win11/tree/main/choco</packageSourceUrl>
+    <owners>Rexqwer911</owners>
+    <title>CycleSwipes</title>
+    <authors>Nikolai Sidorenko</authors>
+    <projectUrl>https://github.com/Rexqwer911/cycle-swipes-win11</projectUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/Rexqwer911/cycle-swipes-win11@main/choco/icon.png</iconUrl>
+    <licenseUrl>https://github.com/Rexqwer911/cycle-swipes-win11/blob/main/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/Rexqwer911/cycle-swipes-win11</projectSourceUrl>
+    <docsUrl>https://github.com/Rexqwer911/cycle-swipes-win11/blob/main/README.md</docsUrl>
+    <bugTrackerUrl>https://github.com/Rexqwer911/cycle-swipes-win11/issues</bugTrackerUrl>
+    <tags>cycleswipes touchpad gestures virtual-desktops windows11 tray</tags>
+    <summary>Wrap-around four-finger touchpad swipes between Windows 11 virtual desktops.</summary>
+    <description><![CDATA[CycleSwipes makes the four-finger touchpad swipe between Windows 11 virtual desktops wrap around:
+on the last desktop, swiping "forward" opens the first one; on the first desktop, swiping "back" opens the last one.
+On the other desktops Windows switches as usual, and system gestures stay untouched.
+
+It runs in the tray. Start it from the Start menu ("CycleSwipes") and turn on "Start with Windows" in the tray menu.
+
+### Requirements
+- Windows 11 (x64) with a Precision Touchpad.
+- The four-finger gesture set to "Switch desktops and show desktop" in the touchpad settings.
+
+### Notes
+- Over windows running as administrator, use "Restart as administrator" from the tray menu: Windows does not
+  deliver touchpad input to standard apps while such a window is in the foreground.
+- Wrapping uses VirtualDesktopAccessor.dll (MIT, bundled), which is tied to the Windows build. If it does not
+  support your build, the app disables wrapping and shows a notification.
+]]></description>
+    <releaseNotes>https://github.com/Rexqwer911/cycle-swipes-win11/releases/tag/v{{VERSION}}</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
