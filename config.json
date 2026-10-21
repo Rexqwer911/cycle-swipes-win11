@@ -1,0 +1,24 @@
+{
+  // Minimum horizontal travel of the center of the four fingers for the gesture to count as a swipe.
+  // Fraction of the touchpad width: 0.12 = 12%. Lower: shorter swipes count, more false triggers.
+  // Higher: a longer swipe is needed.
+  "swipeThresholdX": 0.12,
+
+  // A short fast swipe (a "flick") also counts if it is at least flickMinDistanceX long (fraction of the
+  // touchpad width) and the finger velocity at lift-off is at least flickMinVelocity (touchpad widths per second).
+  // Windows accepts such swipes: in a test, an 8% swipe in 50 ms switched the desktop.
+  // If accidental touches trigger a wrap on an edge desktop, raise both values.
+  "flickMinDistanceX": 0.05,
+  "flickMinVelocity": 1.0,
+
+  // How many times the horizontal travel must exceed the vertical one.
+  // Higher: stricter about diagonal swipes. Lower: more tolerant, but a higher risk of confusing it with up/down swipes.
+  "horizontalRatio": 2.0,
+
+  // false: swipe left = next desktop (to the right in the list). true: the other way round.
+  // Must match how the swipe behaves in Windows itself on the middle desktops.
+  "invertDirection": false,
+
+  // true: log every touchpad frame (lots of lines), only in debug mode. Needed only to debug HID parsing.
+  "logFrames": false
+}
